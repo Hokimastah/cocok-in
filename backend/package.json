@@ -9,7 +9,7 @@
     "data:import": "node utils/seeder.js",
     "data:destroy": "node utils/seeder.js -d"
   },
-  "author": "Your Name",
+  "author": "Satrio",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",

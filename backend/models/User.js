@@ -13,7 +13,7 @@ const UserSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
-    unique: true, // Email harus unik
+    unique: true,
   },
   password: {
     type: String,
@@ -25,20 +25,24 @@ const UserSchema = new mongoose.Schema({
   gender: {
     type: String,
   },
-  // Tambahkan timestamp untuk createdAt dan updatedAt
 }, { timestamps: true });
 
-// Middleware (hook) yang berjalan sebelum menyimpan user ke database
+// Middleware (hook) yang berjalan SEBELUM menyimpan user ke database
 // Ini digunakan untuk mengenkripsi (hash) password secara otomatis
 UserSchema.pre('save', async function (next) {
-  // Hanya hash password jika field password diubah
+  // Hanya hash password jika field password diubah (atau saat user baru)
   if (!this.isModified('password')) {
-    next();
+    return next(); // Jika password tidak diubah, langsung lanjutkan
   }
 
-  // Generate salt dan hash password
-  const salt = await bcrypt.genSalt(10);
-  this.password = await bcrypt.hash(this.password, salt);
+  try {
+    // Generate salt dan hash password
+    const salt = await bcrypt.genSalt(10);
+    this.password = await bcrypt.hash(this.password, salt);
+    next(); // <-- PERINTAH PENTING: Lanjutkan ke langkah berikutnya (menyimpan user)
+  } catch (error) {
+    next(error); // Jika ada error, teruskan errornya
+  }
 });
 
 // Buat dan ekspor model User

@@ -1,42 +1,32 @@
-// Import pustaka yang diperlukan
 const express = require('express');
 const dotenv = require('dotenv');
 const cors = require('cors');
 const connectDB = require('./config/db');
 
-// Import semua file rute
-const authRoutes = require('./routes/authRoutes');
-const userRoutes = require('./routes/userRoutes');
-const testRoutes = require('./routes/testRoutes');
-const recRoutes = require('./routes/recRoutes'); // <-- NAMA BARU DIGUNAKAN DI SINI
-const careerRoutes = require('./routes/careerRoutes');
-const consultationRoutes = require('./routes/consultationRoutes');
-
-// Muat variabel lingkungan dari file .env
+// Muat variabel lingkungan
 dotenv.config();
 
-// Hubungkan ke database MongoDB
+// Hubungkan ke Database
 connectDB();
 
-// Inisialisasi aplikasi Express
+// Inisialisasi aplikasi
 const app = express();
-
-// Middleware
 app.use(cors());
 app.use(express.json());
 
-// Rute dasar untuk pengujian
-app.get('/', (req, res) => {
-  res.send('API Cocok.in sedang berjalan...');
-});
+// Import dan Gunakan Rute
+app.use('/api/auth', require('./routes/authRoutes'));
+app.use('/api/users', require('./routes/userRoutes'));
+app.use('/api/tests', require('./routes/testRoutes'));
+app.use('/api/recommendations', require('./routes/recRoutes'));
+app.use('/api/careers', require('./routes/careerRoutes'));
+app.use('/api/consultations', require('./routes/consultationRoutes'));
 
-// Gunakan Rute API
-app.use('/api/auth', authRoutes);
-app.use('/api/users', userRoutes);
-app.use('/api/tests', testRoutes);
-app.use('/api/recommendations', recRoutes); // <-- NAMA BARU DIGUNAKAN DI SINI
-app.use('/api/careers', careerRoutes);
-app.use('/api/consultations', consultationRoutes);
+// Jalankan server untuk pengembangan lokal
+if (process.env.NODE_ENV !== 'production') {
+  const PORT = process.env.PORT || 5000;
+  app.listen(PORT, () => console.log(`Server berjalan di port ${PORT}`));
+}
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server berjalan di port ${PORT}`));
+// Ekspor aplikasi untuk Vercel
+module.exports = app;

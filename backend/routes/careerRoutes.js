@@ -1,9 +1,6 @@
-const express = require('express');
-const router = express.Router();
+const express_career = require('express');
+const router_career = express_career.Router();
 const { getTrendingCareers } = require('../controllers/careerController');
-const { protect } = require('../middlewares/authMiddleware');
-
-// Rute untuk mendapatkan karir yang sedang tren
-router.get('/', protect, getTrendingCareers);
-
-module.exports = router;
+const { protect: protect_career } = require('../middlewares/authMiddleware');
+router_career.get('/', protect_career, getTrendingCareers);
+module.exports = router_career;

@@ -10,7 +10,7 @@ const majors = [
     name: 'Teknik Mesin',
     description: 'Mempelajari desain, manufaktur, dan pemeliharaan sistem mekanik.',
     primaryRiasecType: 'R',
-    careerProspects: ['Insinyur Mesin', 'Manajer Produksi', 'Desainer Produk'],
+    careerProspects: ['Insinyur Mesin', 'Desainer Produk'],
   },
 
   // Tipe I - Investigative

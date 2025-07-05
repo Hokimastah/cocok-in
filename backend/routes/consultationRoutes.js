@@ -1,11 +1,7 @@
-const express = require('express');
-const router = express.Router();
+/* 6. backend/routes/consultationRoutes.js */
+const express_consult = require('express');
+const router_consult = express_consult.Router();
 const { getConsultants } = require('../controllers/consultationController');
-const { protect } = require('../middlewares/authMiddleware');
-
-// Rute untuk mendapatkan daftar konsultan
-// URL-nya akan menjadi: GET /api/consultations/
-router.get('/', protect, getConsultants);
-
-// Pastikan baris ini ada untuk mengekspor rute
-module.exports = router;
+const { protect: protect_consult } = require('../middlewares/authMiddleware');
+router_consult.get('/', protect_consult, getConsultants);
+module.exports = router_consult;

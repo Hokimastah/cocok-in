@@ -1,14 +1,7 @@
-const express = require('express');
-const router = express.Router();
+const express_test = require('express');
+const router_test = express_test.Router();
 const { getTestQuestions, submitTest } = require('../controllers/testController');
-const { protect } = require('../middlewares/authMiddleware');
-
-// Rute untuk mendapatkan semua pertanyaan tes
-// Dilindungi, hanya user yang login bisa mengakses
-router.get('/questions', protect, getTestQuestions);
-
-// Rute untuk mengirimkan jawaban tes
-// Dilindungi, hanya user yang login bisa mengirimkan
-router.post('/submit', protect, submitTest);
-
-module.exports = router;
+const { protect: protect_test } = require('../middlewares/authMiddleware');
+router_test.get('/questions', protect_test, getTestQuestions);
+router_test.post('/submit', protect_test, submitTest);
+module.exports = router_test;
