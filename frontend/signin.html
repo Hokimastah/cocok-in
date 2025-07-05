@@ -3,12 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In - Cocok.in</title>
+    <title>Masuk - Cocok.in</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-    </style>
+    <style> body { font-family: 'Inter', sans-serif; } </style>
 </head>
 <body class="bg-gray-50">
     <div class="max-w-md mx-auto bg-white min-h-screen shadow-lg">
@@ -17,28 +15,19 @@
                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
             </a>
             <div class="flex-grow flex flex-col justify-center">
-                <h1 class="text-4xl font-bold text-gray-800 mb-8 text-center">Let's Sign In.!</h1>
+                <h1 class="text-4xl font-bold text-gray-800 mb-8 text-center">Ayo Masuk!</h1>
                 <form id="signin-form" class="space-y-6">
-                    <div>
-                        <input type="email" id="email" placeholder="Email" class="w-full p-4 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#4A3780]">
-                    </div>
-                    <div>
-                        <input type="password" id="password" placeholder="Password" class="w-full p-4 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#4A3780]">
-                    </div>
+                    <div><input type="email" id="email" placeholder="Email" class="w-full p-4 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#4A3780]"></div>
+                    <div><input type="password" id="password" placeholder="Password" class="w-full p-4 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#4A3780]"></div>
                     <div class="flex justify-between items-center">
-                        <label class="flex items-center gap-2 text-gray-600">
-                            <input type="checkbox" class="rounded text-[#4A3780] focus:ring-[#4A3780]">
-                            Remember Me
-                        </label>
-                        <a href="#" class="font-semibold text-[#4A3780]">Forgot Password?</a>
+                        <label class="flex items-center gap-2 text-gray-600"><input type="checkbox" class="rounded text-[#4A3780] focus:ring-[#4A3780]"> Ingat Saya</label>
+                        <a href="#" class="font-semibold text-[#4A3780]">Lupa Password?</a>
                     </div>
                     <div id="signin-message" style="display: none;"></div>
-                    <button type="submit" class="w-full block text-center bg-[#4A3780] text-white rounded-full py-4 font-bold text-lg hover:bg-[#3b2c66] transition-transform active:scale-95">
-                        Sign In
-                    </button>
+                    <button type="submit" class="w-full block text-center bg-[#4A3780] text-white rounded-full py-4 font-bold text-lg">Masuk</button>
                 </form>
             </div>
-            <p class="text-center text-gray-600">Don't have an account? <a href="register.html" class="font-bold text-[#4A3780]">Sign UP</a></p>
+            <p class="text-center text-gray-600">Belum punya akun? <a href="register.html" class="font-bold text-[#4A3780]">Daftar</a></p>
         </div>
     </div>
     <script src="./assets/js/main.js"></script>
