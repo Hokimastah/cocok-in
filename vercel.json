@@ -6,39 +6,7 @@
       "use": "@vercel/node"
     },
     {
-      "src": "frontend/index.html",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "frontend/login.html",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "frontend/signin.html",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "frontend/register.html",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "frontend/tes.html",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "frontend/rekomendasi.html",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "frontend/karir.html",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "frontend/konsultasi.html",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "frontend/assets/**",
+      "src": "frontend/**",
       "use": "@vercel/static"
     }
   ],
@@ -52,12 +20,12 @@
       "dest": "/frontend/assets/$1"
     },
     {
-      "src": "/(.*)",
+      "src": "/(.*).html",
       "dest": "/frontend/$1.html"
     },
     {
       "src": "/",
-      "dest": "/frontend/index.html"
+      "dest": "/frontend/login.html"
     }
   ]
 }
